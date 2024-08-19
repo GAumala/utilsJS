@@ -6,7 +6,7 @@
   "type": "src/module.js",
   "scripts": {
     "test": "jest",
-    "docs": "jsdoc src/*.js"
+    "docs": "jsdoc src/*.js -d docs"
   },
   "repository": {
     "type": "git",
