@@ -11,7 +11,7 @@
  * successfully. If an error is thrown while reading data, the promise
  * rejects with the error.
  */
-export const streamToString = (stream) => {
+const streamToString = (stream) => {
   const chunks = [];
   return new Promise((resolve, reject) => {
     stream.on("data", (chunk) => chunks.push(Buffer.from(chunk)));
@@ -19,3 +19,5 @@ export const streamToString = (stream) => {
     stream.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
   });
 };
+
+module.exports = { streamToString };

@@ -8,4 +8,6 @@
  * @function unixTime
  * @returns {number} The system's current unix time
  */
-export const unixTime = () => Math.floor(Date.now() / 1000);
+const unixTime = () => Math.floor(Date.now() / 1000);
+
+module.exports = { unixTime };

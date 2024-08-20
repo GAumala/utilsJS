@@ -14,7 +14,7 @@
  * // returns { 'a': 1, 'e': 2, 'f': 3 }
  * renameKeys({ 'a': 1, 'b': 2, 'c': 3 }, { 'b': 'e', 'c': 'f' });
  */
-export const renameKeys = (obj, newKeys) => {
+const renameKeys = (obj, newKeys) => {
   const keyValues = Object.keys(obj).map((key) => {
     const newKey = newKeys[key] || key;
     return { [newKey]: obj[key] };
@@ -32,7 +32,7 @@ export const renameKeys = (obj, newKeys) => {
  * // returns { 'a': 1  }
  * removeKeys({ 'a': 1, 'b': 2, 'c': 3 }, 'b', 'c');
  */
-export const removeKeys = (obj, ...keysToRemove) =>
+const removeKeys = (obj, ...keysToRemove) =>
   Object.keys(obj)
     .filter((key) => !keysToRemove.includes(key))
     .reduce((res, key) => {
@@ -50,7 +50,7 @@ export const removeKeys = (obj, ...keysToRemove) =>
  * // returns { 'a': 1, 'b': 'x' }
  * parseIntKeys({ 'a': '1', 'b': 'x' }, 'a');
  */
-export const parseIntKeys = (obj, ...intKeys) => {
+const parseIntKeys = (obj, ...intKeys) => {
   const keyValues = Object.keys(obj).map((key) => {
     const value = intKeys.includes(key) ? parseInt(obj[key]) : obj[key];
     return { [key]: value };
@@ -65,4 +65,6 @@ export const parseIntKeys = (obj, ...intKeys) => {
  * @returns {boolean} true if the vaue is of type object and is not null.
  * Otherwise returns false.
  */
-export const isValidObject = (obj) => typeof obj === "object" && obj !== null;
+const isValidObject = (obj) => typeof obj === "object" && obj !== null;
+
+module.exports = { isValidObject, parseIntKeys, removeKeys, renameKeys };

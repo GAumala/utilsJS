@@ -10,4 +10,6 @@
  * @param {Array} array - input array
  * @returns {Array} a new array without duplicates
  */
-export const removeDuplicates = (array) => [...new Set(array)];
+const removeDuplicates = (array) => [...new Set(array)];
+
+module.exports = { removeDuplicates };

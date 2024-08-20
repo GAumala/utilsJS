@@ -16,7 +16,7 @@
  * // returns "$5.00"
  * formatCents(500)
  */
-export const formatCents = (cents) => {
+const formatCents = (cents) => {
   if (cents === 0) return "$ 0";
   const digits = cents.toString().split("");
   if (digits.length === 1) {
@@ -29,3 +29,5 @@ export const formatCents = (cents) => {
   digits.splice(digits.length - 2, 0, ".");
   return "$" + digits.join("");
 };
+
+module.exports = { formatCents };

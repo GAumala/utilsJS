@@ -2,7 +2,6 @@
   "name": "@gaumala/utils",
   "version": "0.1.0",
   "description": "Utilities I reuse on every project",
-  "type": "module",
   "scripts": {
     "test": "jest",
     "lint": "eslint src/*.js src/**/*.js pack.js",

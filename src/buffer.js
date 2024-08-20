@@ -2,7 +2,7 @@
  * Methods for {@link https://nodejs.org/api/buffer.html|buffers}
  * @module @gaumala/utils/buffer
  */
-import { Buffer } from "node:buffer";
+const { Buffer } = require("node:buffer");
 
 /**
  * Serializes an object to a buffer
@@ -12,8 +12,7 @@ import { Buffer } from "node:buffer";
  * can get the original object back with {@link
  * module:@gaumala/utils/buffer~deserializeFromBuffer|deserializeFromBuffer}
  */
-export const serializeToBuffer = (obj) =>
-  Buffer.from(JSON.stringify(obj), "utf8");
+const serializeToBuffer = (obj) => Buffer.from(JSON.stringify(obj), "utf8");
 
 /**
  * Deserializes an object from buffer
@@ -22,4 +21,6 @@ export const serializeToBuffer = (obj) =>
  * module:@gaumala/utils/buffer~serializeToBuffer|serializeToBuffer}
  * @returns {object} The original object contained in the buffer
  */
-export const deserializeFromBuffer = (buf) => JSON.parse(buf.toString("utf8"));
+const deserializeFromBuffer = (buf) => JSON.parse(buf.toString("utf8"));
+
+module.exports = { serializeToBuffer, deserializeFromBuffer };

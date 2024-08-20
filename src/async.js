@@ -15,7 +15,7 @@
  * @returns {Promise} A Promise that resolves after the specified time
  * has passed. It does not reject.
  */
-export const sleep = (ms, signal) =>
+const sleep = (ms, signal) =>
   new Promise((resolve) => {
     const timeoutId = setTimeout(resolve, ms);
     if (signal) {
@@ -33,7 +33,9 @@ export const sleep = (ms, signal) =>
  * @returns {Promise} A promise that returns after the next event loop tick.
  * It cannot reject.
  */
-export const untilNextTick = () =>
+const untilNextTick = () =>
   new Promise((resolve) => {
     process.setNextTick(() => resolve());
   });
+
+module.exports = { sleep, untilNextTick };
