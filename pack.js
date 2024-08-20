@@ -1,14 +1,11 @@
-import * as path from "node:path";
-import { fileURLToPath } from "node:url";
-import { cp, copyFile, readFile, rm, writeFile } from "node:fs/promises";
-import { spawn } from "node:child_process";
+const path = require("node:path");
+const { cp, copyFile, readFile, rm, writeFile } = require("node:fs/promises");
 
-import { removeKeys } from "./src/object.js";
+const { removeKeys } = require("./src/object.js");
 
 const writeJsonFile = (filepath, obj) =>
   writeFile(filepath, JSON.stringify(obj, null, 4));
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distPath = path.join(__dirname, "dist");
 const srcPath = path.join(__dirname, "src");
 
