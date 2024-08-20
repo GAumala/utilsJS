@@ -18,19 +18,6 @@ const createDistPackageJson = async () => {
   return removeKeys(packageJson, "scripts", "devDependencies");
 };
 
-const createTarball = (tarName) =>
-  new Promise((resolve, reject) => {
-    const tarPath = path.join(__dirname, tarName + ".tar.gz");
-    const proc = spawn("tar", ["cf", tarPath, "."], { cwd: distPath });
-    proc.on("close", (code) => {
-      if (code === 0) {
-        resolve();
-      } else {
-        reject(new Error(`tar exited with code ${code}`));
-      }
-    });
-  });
-
 const run = async () => {
   // delete dist/ dir
   await rm(distPath, { recursive: true, force: true });
@@ -47,8 +34,6 @@ const run = async () => {
   // write new package json in dist/
   const packageJson = await createDistPackageJson();
   await writeJsonFile(path.join(distPath, "package.json"), packageJson);
-
-  return createTarball("utils");
 };
 
 run()

@@ -17,6 +17,15 @@ npm install --save @gaumala/utils
 
 Then read the docs at https://gaumala.github.io/utilsJS/
 
+## Release 
+
+To release a new version run:
+
+```
+node pack.js
+npm publish --access=public dist/
+```
+
 ## License
 
 MIT License
