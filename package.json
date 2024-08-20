@@ -2,10 +2,11 @@
   "name": "@gaumala/utils",
   "version": "1.0.0",
   "description": "Utilities I reuse on every project",
-  "main": "src/index.js",
   "type": "src/module.js",
   "scripts": {
     "test": "jest",
+    "lint": "eslint src/*.js src/**/*.js",
+    "format": "prettier --write src/",
     "docs": "jsdoc src/*.js -d docs"
   },
   "repository": {

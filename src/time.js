@@ -4,7 +4,7 @@
  */
 
 /**
- * Returns current {@link https://en.wikipedia.org/wiki/Unix_time|unix time} 
+ * Returns current {@link https://en.wikipedia.org/wiki/Unix_time|unix time}
  * @function unixTime
  * @returns {number} The system's current unix time
  */
