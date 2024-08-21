@@ -6,8 +6,8 @@
 /**
  * Renames an object's keys
  * @function renameKeys
- * @param {object} obj - the original object
- * @param {object} newKeys - a dictionary of the renaming
+ * @param {Object} obj - the original object
+ * @param {Object} newKeys - a dictionary of the renaming
  * (original key -> new key).
  * @returns a new object with the renamed keys
  * @example
@@ -25,7 +25,7 @@ const renameKeys = (obj, newKeys) => {
 /**
  * Renames keys from an object
  * @function removeKeys
- * @param {object} obj - the original object
+ * @param {Object} obj - the original object
  * @param {...string} keyToRemove - a key to remove
  * @returns a new object without the specified keys.
  * @example
@@ -43,7 +43,7 @@ const removeKeys = (obj, ...keysToRemove) =>
 /**
  * Parses keys that containg a value with an integer string
  * @function parseIntKeys
- * @param {object} obj - the original object
+ * @param {Object} obj - the original object
  * @param {...string} intKey - a key that has an integer value associated.
  * @returns a new object in which the specifed keys now have number values.
  * @example
@@ -61,7 +61,7 @@ const parseIntKeys = (obj, ...intKeys) => {
 /**
  * checks if a value is of type object and is not null
  * @function isValidObject
- * @param obj - any value
+ * @param {*} obj - any value
  * @returns {boolean} true if the vaue is of type object and is not null.
  * Otherwise returns false.
  */

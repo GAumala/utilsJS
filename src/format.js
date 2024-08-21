@@ -8,7 +8,7 @@
  * @function formatCents
  * @param {number} cents - An integer with a number
  * of dollar cents
- * @returns A string with the cents number converted to dollar
+ * @returns {string} A string with the cents number converted to dollar
  * @example
  * // returns "$0.99"
  * formatCents(99)
