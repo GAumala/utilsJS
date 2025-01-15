@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: @gaumala/utils/array</title>
+    <title>JSDoc: Module: @gaumala/utils/path</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: @gaumala/utils/array</h1>
+    <h1 class="page-title">Module: @gaumala/utils/path</h1>
 
     
 
@@ -38,7 +38,7 @@
     <div class="container-overview">
     
         
-            <div class="description">Methods for arrays</div>
+            <div class="description">Methods for working with file paths</div>
         
 
         
@@ -87,7 +87,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="array.js.html">array.js</a>, <a href="array.js.html#line1">line 1</a>
+        <a href="path.js.html">path.js</a>, <a href="path.js.html#line2">line 2</a>
     </li></ul></dd>
     
 
@@ -144,7 +144,7 @@
     
 
     
-    <h4 class="name" id="~removeDuplicates"><span class="type-signature">(inner) </span>removeDuplicates<span class="signature">(array)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    <h4 class="name" id="~isParentDir"><span class="type-signature">(inner) </span>isParentDir<span class="signature">(dir, file)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
     
 
     
@@ -152,7 +152,9 @@
 
 
 <div class="description">
-    Removes duplicate items from an array like if it was a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set">Set</a>
+    Checks if a path is a parent directory of another path.
+Useful to validate paths input by users, so that they
+can only access files inside a specified directory.
 </div>
 
 
@@ -188,13 +190,13 @@
 
         <tr>
             
-                <td class="name"><code>array</code></td>
+                <td class="name"><code>dir</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Array</span>
+<span class="param-type">string</span>
 
 
             
@@ -204,7 +206,30 @@
 
             
 
-            <td class="description last">input array</td>
+            <td class="description last">An absoulte path of a directory</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>file</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An absolute path of a directory or file</td>
         </tr>
 
     
@@ -245,7 +270,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="array.js.html">array.js</a>, <a href="array.js.html#line6">line 6</a>
+        <a href="path.js.html">path.js</a>, <a href="path.js.html#line7">line 7</a>
     </li></ul></dd>
     
 
@@ -274,7 +299,7 @@
 
         
 <div class="param-desc">
-    a new array without duplicates
+    `true` if `dir` is a parent of `file`.
 </div>
 
 
@@ -285,7 +310,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Array</span>
+<span class="param-type">boolean</span>
 
 
     </dd>

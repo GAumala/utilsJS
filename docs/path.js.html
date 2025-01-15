@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: stream.js</title>
+    <title>JSDoc: Source: path.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: stream.js</h1>
+    <h1 class="page-title">Source: path.js</h1>
 
     
 
@@ -26,29 +26,30 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Methods for {@link https://nodejs.org/api/stream.html|streams}
- * @module @gaumala/utils/stream
+            <pre class="prettyprint source linenums"><code>const path = require("node:path");
+/**
+ * Methods for working with file paths
+ * @module @gaumala/utils/path
  */
 
 /**
- * Consumes a stream completely and returns its contents as a single string.
- * @function streamToString
- * @param {Stream} stream a readable stream containing utf8 text.
- * @returns {Promise&lt;string>} A promise that resolves to a string if the stream is consumed
- * successfully. If an error is thrown while reading data, the promise
- * rejects with the error.
+ * Checks if a path is a parent directory of another path.
+ * Useful to validate paths input by users, so that they
+ * can only access files inside a specified directory.
+ * @function isParentDir
+ * @param {string} dir An absoulte path of a directory
+ * @param {string} file An absolute path of a directory or file
+ * @returns {boolean} `true` if `dir` is a parent of `file`.
  */
-const streamToString = (stream) => {
-  const chunks = [];
-  return new Promise((resolve, reject) => {
-    stream.on("data", (chunk) => chunks.push(Buffer.from(chunk)));
-    stream.on("error", (err) => reject(err));
-    stream.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
-  });
+const isParentDir = (dir, file) => {
+  const relativePath = path.relative(dir, file);
+  if (relativePath.startsWith("..")) {
+    return false;
+  }
+  return true;
 };
 
-module.exports = { streamToString };
+module.exports = { isParentDir };
 </code></pre>
         </article>
     </section>
